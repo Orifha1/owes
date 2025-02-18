@@ -1,0 +1,14 @@
+{
+  "name": "owes",
+  "version": "1.0.0",
+  "description": "The application will involve having people who want to borrow each other money but need some sort of proof.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Orifha Tshikotshi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
