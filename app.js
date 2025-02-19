@@ -19,6 +19,24 @@ app.get("/api/v1/transactions", (req, res) => {
   });
 });
 
+app.get("/api/v1/transactions/:id", (req, res) => {
+  const id = req.params.id * 1;
+  const transaction = transactions.find((el) => el.id === id);
+  if (!transaction) {
+    return res.status(404).json({
+      status: "fail",
+      message: "Invalid ID",
+    });
+  }
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      transaction,
+    },
+  });
+});
+
 app.post("/api/v1/transactions", (req, res) => {
   // console.log(req.body);
   const newId = transactions[transactions.length - 1].id + 1;
@@ -38,6 +56,34 @@ app.post("/api/v1/transactions", (req, res) => {
       });
     }
   );
+});
+
+app.patch("/api/v1/transactions/:id", (req, res) => {
+  if (req.params.id * 1 > transactions.length) {
+    return res.status(404).json({
+      status: "fail",
+      message: "Invalid ID",
+    });
+  }
+  res.status(200).json({
+    status: "success",
+    data: {
+      transaction: "<updated transaction here>",
+    },
+  });
+});
+
+app.delete("/api/v1/transactions/:id", (req, res) => {
+  if (req.params.id * 1 > transactions.length) {
+    return res.status(404).json({
+      status: "fail",
+      message: "Invalid ID",
+    });
+  }
+  res.status(204).json({
+    status: "success",
+    data: null,
+  });
 });
 
 const port = 3000;
