@@ -6,10 +6,7 @@
     "agreed": true,
     "declinedByBorrower": false,
     "declinedByLender": false,
-    "usersInvolved": {
-      "lender": "user_001",
-      "borrower": "user_002"
-    },
+    "usersInvolved": { "lender": "user_001", "borrower": "user_002" },
     "amount": 500,
     "currency": "USD",
     "repaymentDueDate": "2025-03-18T00:00:00Z",
@@ -27,10 +24,7 @@
     "agreed": false,
     "declinedByBorrower": true,
     "declinedByLender": false,
-    "usersInvolved": {
-      "lender": "user_003",
-      "borrower": "user_004"
-    },
+    "usersInvolved": { "lender": "user_003", "borrower": "user_004" },
     "amount": 300,
     "currency": "EUR",
     "status": "declined",
@@ -43,10 +37,7 @@
     "agreed": true,
     "declinedByBorrower": false,
     "declinedByLender": false,
-    "usersInvolved": {
-      "lender": "user_005",
-      "borrower": "user_006"
-    },
+    "usersInvolved": { "lender": "user_005", "borrower": "user_006" },
     "amount": 1000,
     "currency": "GBP",
     "repaymentDueDate": "2025-04-15T00:00:00Z",
@@ -64,10 +55,7 @@
     "agreed": false,
     "declinedByBorrower": false,
     "declinedByLender": true,
-    "usersInvolved": {
-      "lender": "user_007",
-      "borrower": "user_008"
-    },
+    "usersInvolved": { "lender": "user_007", "borrower": "user_008" },
     "amount": 200,
     "currency": "USD",
     "status": "declined",
@@ -80,10 +68,7 @@
     "agreed": true,
     "declinedByBorrower": false,
     "declinedByLender": false,
-    "usersInvolved": {
-      "lender": "user_009",
-      "borrower": "user_010"
-    },
+    "usersInvolved": { "lender": "user_009", "borrower": "user_010" },
     "amount": 750,
     "currency": "USD",
     "repaymentDueDate": "2025-03-10T00:00:00Z",
@@ -101,10 +86,7 @@
     "agreed": true,
     "declinedByBorrower": false,
     "declinedByLender": false,
-    "usersInvolved": {
-      "lender": "user_011",
-      "borrower": "user_012"
-    },
+    "usersInvolved": { "lender": "user_011", "borrower": "user_012" },
     "amount": 1500,
     "currency": "CAD",
     "repaymentDueDate": "2025-05-08T00:00:00Z",
@@ -122,10 +104,7 @@
     "agreed": true,
     "declinedByBorrower": false,
     "declinedByLender": false,
-    "usersInvolved": {
-      "lender": "user_013",
-      "borrower": "user_014"
-    },
+    "usersInvolved": { "lender": "user_013", "borrower": "user_014" },
     "amount": 400,
     "currency": "AUD",
     "repaymentDueDate": "2025-03-06T00:00:00Z",
@@ -143,10 +122,7 @@
     "agreed": true,
     "declinedByBorrower": false,
     "declinedByLender": false,
-    "usersInvolved": {
-      "lender": "user_015",
-      "borrower": "user_016"
-    },
+    "usersInvolved": { "lender": "user_015", "borrower": "user_016" },
     "amount": 600,
     "currency": "USD",
     "repaymentDueDate": "2025-04-04T00:00:00Z",
@@ -164,10 +140,7 @@
     "agreed": false,
     "declinedByBorrower": true,
     "declinedByLender": false,
-    "usersInvolved": {
-      "lender": "user_017",
-      "borrower": "user_018"
-    },
+    "usersInvolved": { "lender": "user_017", "borrower": "user_018" },
     "amount": 250,
     "currency": "EUR",
     "status": "declined",
@@ -180,10 +153,7 @@
     "agreed": true,
     "declinedByBorrower": false,
     "declinedByLender": false,
-    "usersInvolved": {
-      "lender": "user_019",
-      "borrower": "user_020"
-    },
+    "usersInvolved": { "lender": "user_019", "borrower": "user_020" },
     "amount": 2000,
     "currency": "GBP",
     "repaymentDueDate": "2025-06-30T00:00:00Z",
@@ -191,6 +161,24 @@
     "agreementTimestamp": "2025-01-30T20:35:00Z",
     "status": "active",
     "notes": "Loan for education purposes. 5-month repayment plan.",
+    "reminderSent": false,
+    "returnConfirmedByLender": false
+  },
+  {
+    "id": 11,
+    "title": "Short-Term Loan for Rent",
+    "timestamp": "2025-02-18T10:00:00Z",
+    "agreed": true,
+    "declinedByBorrower": false,
+    "declinedByLender": false,
+    "usersInvolved": { "lender": "user_011", "borrower": "user_011" },
+    "amount": 500,
+    "currency": "USD",
+    "repaymentDueDate": "2025-03-18T00:00:00Z",
+    "repaymentStatus": "pending",
+    "agreementTimestamp": "2025-02-18T10:05:00Z",
+    "status": "active",
+    "notes": "Loan to be repaid within 30 days with no interest.",
     "reminderSent": false,
     "returnConfirmedByLender": false
   }
