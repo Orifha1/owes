@@ -1,12 +1,15 @@
+const morgan = require("morgan");
 const express = require("express");
-
+const transactionRouter = require("./routes/transactionsRoutes");
+const userRouter = require("./routes/userRoutes");
 const app = express();
 
-app.get("/", (req, res) => {
-  res.status(200).json({ message: "Hello there", app: "owes" });
-});
+// MIDDLEWARES
+app.use(morgan("dev"));
+app.use(express.json());
 
-const port = 3000;
-app.listen(port, () => {
-  console.log(`App running on port ${port}`);
-});
+// ROUTES
+app.use("/api/v1/transactions", transactionRouter);
+app.use("/api/v1/users", userRouter);
+
+module.exports = app;

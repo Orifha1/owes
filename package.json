@@ -1,14 +1,15 @@
 {
   "name": "owes",
   "version": "1.0.0",
-  "description": "The application will involve having people who want to borrow each other money but need some sort of proof.",
+  "description": "The application involve having people who want to borrow each other money but need some sort of proof.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "author": "Orifha Tshikotshi",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "morgan": "^1.10.0"
   }
 }
