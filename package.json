@@ -4,11 +4,13 @@
   "description": "The application involve having people who want to borrow each other money but need some sort of proof.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start:dev": "nodemon server.js",
+    "start:prod": "nodemon server.js"
   },
   "author": "Orifha Tshikotshi",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "morgan": "^1.10.0"
   }
