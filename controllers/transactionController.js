@@ -1,79 +1,113 @@
-const fs = require('fs');
+const Transaction = require('./../models/transactionModel');
 
-const transactions = JSON.parse(
-  fs.readFileSync(`${__dirname}/../dev-data/data.json`),
-);
-
-exports.checkID = (req, res, next) => {
-  if (req.params.id * 1 > transactions.length) {
-    return res.status(404).json({
+/**
+ * Gets all the transactions.
+ */
+exports.getAllTransactions = async (req, res) => {
+  try {
+    const transactions = await Transaction.find();
+    console.log(transactions);
+    res.status(200).json({
+      status: 'success',
+      results: transactions.length,
+      data: {
+        transactions,
+      },
+    });
+  } catch (error) {
+    res.status(400).json({
       status: 'fail',
-      message: 'Invalid ID',
+      message: error,
     });
   }
-  next();
 };
 
-exports.getAllTransactions = (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    results: transactions.length,
-    data: {
-      transactions,
-    },
-  });
-};
+/**
+ * Gets a specific transaction
+ */
+exports.getTransaction = async (req, res) => {
+  const id = req.params.id;
 
-exports.getTransaction = (req, res) => {
-  const id = req.params.id * 1;
-  const transaction = transactions.find((el) => el.id === id);
-  if (!transaction) {
-    return res.status(404).json({
+  try {
+    const transaction = await Transaction.findById(id);
+    res.status(200).json({
+      status: 'success',
+      data: {
+        transaction,
+      },
+    });
+  } catch (error) {
+    res.status(400).json({
       status: 'fail',
-      message: 'Invalid ID',
+      message: error,
     });
   }
-
-  res.status(200).json({
-    status: 'success',
-    data: {
-      transaction,
-    },
-  });
 };
 
-exports.createTransaction = (req, res) => {
-  const newId = transactions[transactions.length - 1].id + 1;
-
-  const newTransaction = Object.assign({ id: newId }, req.body);
-
-  transactions.push(newTransaction);
-  fs.writeFile(
-    `${__dirname}/dev-data/data.json`,
-    JSON.stringify(transactions),
-    (err) => {
-      res.status(201).json({
-        status: 'success',
-        data: {
-          transaction: newTransaction,
-        },
-      });
-    },
-  );
+/**
+ * Creates the user transaction that will be shared by ythe users.
+ */
+exports.createTransaction = async (req, res) => {
+  try {
+    const newTransaction = await Transaction.create(req.body);
+    res.status(201).json({
+      status: 'success',
+      data: {
+        transaction: newTransaction,
+      },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: err,
+    });
+  }
 };
 
-exports.updateTransaction = (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    data: {
-      transaction: '<updated transaction here>',
-    },
-  });
+/**
+ * Updates the trancaction.
+ */
+exports.updateTransaction = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const updatedTransaction = await Transaction.findByIdAndUpdate(
+      id,
+      req.body,
+      {
+        new: true, // return newly updated transaction.
+        runValidators: true,
+      },
+    );
+    res.status(200).json({
+      status: 'success',
+      data: {
+        transaction: updatedTransaction,
+      },
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: 'fail',
+      message: error,
+    });
+  }
 };
 
-exports.deleteTransaction = (req, res) => {
-  res.status(204).json({
-    status: 'success',
-    data: null,
-  });
+/**
+ * Deletes a specific transaction.
+ */
+exports.deleteTransaction = async (req, res) => {
+  try {
+    const id = req.params.id;
+    await Transaction.findByIdAndDelete(id);
+
+    res.status(204).json({
+      status: 'success',
+      data: null,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: 'fail',
+      message: error,
+    });
+  }
 };
