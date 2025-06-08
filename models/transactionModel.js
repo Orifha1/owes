@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const validator = require('validator');
 const transactionSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -8,6 +9,7 @@ const transactionSchema = new mongoose.Schema({
   amount: {
     type: Number,
     required: [true, 'A transaction must have an amount'],
+    // TODO: Check if this is a valid currency.
   },
   notes: {
     type: String,
@@ -29,6 +31,7 @@ const transactionSchema = new mongoose.Schema({
   currency: {
     type: String,
     default: 'ZAR',
+    // TODO: Check if this is a valid currency.
   },
   createdAt: {
     type: Date,
