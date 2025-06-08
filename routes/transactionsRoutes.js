@@ -4,6 +4,10 @@ const transactionController = require('./../controllers/transactionController');
 const router = express.Router();
 
 router
+  .route('/transaction-stats')
+  .get(transactionController.getTransactionsStats);
+
+router
   .route('/')
   .get(transactionController.getAllTransactions)
   .post(transactionController.createTransaction);
