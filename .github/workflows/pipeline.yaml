@@ -1,0 +1,24 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [refactor_api]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+steps:
+  - name: Checkout code
+    uses: actions/Checkout@v5
+
+  - name: Set up Node.jobs
+    uses: actions/setup-node@v5
+    with:
+      node-version: 20
+
+  - name: Install dependencies
+    run: npm Install
+
+  - name: Run tests
+    run: npm test
